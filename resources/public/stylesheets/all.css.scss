@@ -27,16 +27,13 @@ body {
 }
 
 .background {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
+  background: $slate-blue;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
   overflow: hidden;
+  position: relative;
   width: 100%;
   &.train-tracks {
     background-image: url(/images/train-tracks-blurred.png);
@@ -184,6 +181,63 @@ select {
   }
 }
 
+/* ----(( listings ))---- */
+.listing-container {
+  float: left;
+  margin: 2%;
+  position: relative;
+  width: 29.333333333%;
+  img {
+    display: block;
+    min-width: 360px;
+  }
+  .listing-image {
+    background-color: $gray;
+    height: 340px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 20;
+  }
+  .price {
+    background: $coral;
+    color: #fff;
+    display: inline-block;
+    padding: 0.8em 1.2em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  a {
+    display: block;
+  }
+}
+
+/* ----(( clear fixes ))---- */
+.container:before,
+.container:after,
+.row:before,
+.row:after,
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.container:after,
+.row:after,
+.cf:after {
+  clear: both;
+}
+
+.container,
+.row,
+.cf {
+  *zoom: 1;
+}
+
+
 /* ----(( overrides ))---- */
 .center {
   text-align: center;
@@ -194,10 +248,21 @@ select {
 }
 
 /* ----(( media queries ))---- */
+@media screen and (max-width: 900px) {
+  .listing-container {
+    width: 46%;
+  }
+}
+
 @media screen and (max-width: 480px) {
   select, input[type=submit], input[type=text], input[type=password], textarea {
     width: 100%;
     margin-bottom: 0.5em;
     margin-right: 0;
   }
+  .listing-container {
+    margin: 4% 2%;
+    width: 96%;
+  }
 }
+
