@@ -26,8 +26,13 @@
   (let [category-options (find-category category)]
     (render "src/clj/sherlac/search_form.html")))
 
+(defn display-results [results]
+  (prn "in display results")
+  (render "src/clj/sherlac/results.html" {:results results}))
+
 (defroutes app-routes
   (GET "/" [] (with-layout (search-form "housing")))
+  (GET "/results" [] (with-layout (display-results "")))
   (GET "/:category" [category] (with-layout (search-form category))))
 
 (def app-handler
