@@ -27,7 +27,6 @@
     (render "src/clj/sherlac/search_form.html")))
 
 (defn display-results [results]
-  (prn "in display results")
   (render "src/clj/sherlac/results.html" {:results results}))
 
 (defroutes app-routes
