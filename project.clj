@@ -1,11 +1,11 @@
 (defproject sherlac "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "A slightly more sophisticated search experience for Criag's List"
+  :url "http://sherlac.co"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
-  :dependencies [[hiccups "0.2.0"]
-                 [joodo "2.1.0"]
+  :dependencies [[joodo "2.1.0"]
+                 [de.ubercode.clostache/clostache "1.3.1"]
                  [org.clojars.trptcolin/domina "1.0.2.1"] ; waiting on release including https://github.com/levand/domina/pull/65
                  [org.clojars.trptcolin/shoreleave-remote "0.3.0.1"] ; waiting on release including]
                  [org.clojure/clojure "1.5.1"]
@@ -37,5 +37,5 @@
 
   :source-paths ["src/clj" "src/cljs"]
   :test-paths ["spec/clj"]
-  :ring {:handler sherlac.main/app
+  :ring {:handler sherlac.root/app
          :init sherlac.init/init})

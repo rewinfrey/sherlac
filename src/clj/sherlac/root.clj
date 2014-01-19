@@ -1,4 +1,4 @@
-(ns sherlac.main
+(ns sherlac.root
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
             [joodo.middleware.asset-fingerprint :refer [wrap-asset-fingerprint]]
@@ -7,7 +7,6 @@
             [joodo.middleware.request :refer [wrap-bind-request]]
             [joodo.middleware.util :refer [wrap-development-maybe]]
             [joodo.middleware.view-context :refer [wrap-view-context]]
-            [joodo.views :refer [render-template render-html]]
             [ring.middleware.file-info :refer [wrap-file-info]]
             [ring.middleware.flash :refer [wrap-flash]]
             [ring.middleware.head :refer [wrap-head]]
@@ -16,17 +15,24 @@
             [ring.middleware.params :refer [wrap-params]]
             [ring.middleware.resource :refer [wrap-resource]]
             [ring.middleware.session :refer [wrap-session]]
-            [shoreleave.middleware.rpc :refer [wrap-rpc]]))
+            [sherlac.query-craig.category :refer [find-category]]
+            [sherlac.render :refer :all]
+            ))
+
+(defmacro with-layout [& body]
+  `(render "src/clj/sherlac/layout.html" {:page-content ~@body}))
+
+(defn search-form [category]
+  (let [category-options (find-category category)]
+    (render "src/clj/sherlac/search_form.html")))
 
 (defroutes app-routes
-  (GET "/" [] (render-template "index"))
-  (route/not-found (render-template "not_found" :template-root "sherlac" :ns `sherlac.view-helpers)))
+  (GET "/" [] (with-layout (search-form "housing")))
+  (GET "/:category" [category] (with-layout (search-form category))))
 
 (def app-handler
   (->
-    app-routes
-    (wrap-view-context :template-root "sherlac" :ns `sherlac.view-helpers)
-    wrap-rpc))
+    app-routes))
 
 (def app
   (-> app-handler

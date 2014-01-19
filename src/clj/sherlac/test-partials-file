@@ -1,0 +1,1 @@
+<html><body>{{title}}<hr />{{>page-content}}</body></html>
