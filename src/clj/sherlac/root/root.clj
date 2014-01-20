@@ -20,7 +20,7 @@
             ))
 
 (defmacro with-layout [& body]
-  `(render "src/clj/sherlac/layout.html" {:page-content ~@body}))
+  `(render "src/clj/sherlac/root/layout.html" {:page-content ~@body}))
 
 (defn search-form [category]
   (let [category-options (find-category category)]

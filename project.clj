@@ -37,5 +37,5 @@
 
   :source-paths ["src/clj" "src/cljs"]
   :test-paths ["spec/clj"]
-  :ring {:handler sherlac.root/app
+  :ring {:handler sherlac.root.root/app
          :init sherlac.init/init})
