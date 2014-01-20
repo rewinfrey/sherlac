@@ -12,3 +12,6 @@ pom.xml
 .lein-plugins
 .lein-repl-history
 .sass-cache
+src/clj/sherlac/test-dynamic-file
+src/clj/sherlac/test-file
+src/clj/sherlac/test-partials-file
