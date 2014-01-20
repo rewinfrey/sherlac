@@ -32,9 +32,6 @@ header {
 
 .container {
   margin: 0 auto;
-  max-width: 1200px;
-  width: 90%;
-  padding: 1.5em 0;
   position: relative; }
 
 .logo-image {
@@ -70,7 +67,8 @@ header {
   background: #fff;
   box-shadow: 0 0 4px #454f5e;
   margin: 0 auto;
-  overflow: hidden; }
+  overflow: hidden;
+  width: 90%; }
   .form-container.search {
     max-width: 620px; }
 
@@ -152,33 +150,62 @@ select {
     width: 100%;
     display: block; }
 
+/* ----(( results ))---- */
+.search-results header {
+  margin-top: 0;
+  padding: 1.5em 0; }
+.search-results .logo-image {
+  margin: 0; }
+.search-results a {
+  display: inline-block; }
+
 /* ----(( listings ))---- */
 .listing-container {
   float: left;
-  margin: 2%;
   position: relative;
-  width: 29.333333333%; }
-  .listing-container img {
+  width: 33.333333333%; }
+
+.listing-image {
+  height: 340px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 0; }
+  .listing-image img {
     display: block;
-    min-width: 360px; }
-  .listing-container .listing-image {
-    background-color: #9dadac;
-    height: 340px;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    width: 100%;
-    z-index: 20; }
-  .listing-container .price {
+    min-width: 100%; }
+  .listing-image.none {
+    background: url(/images/no-image.png) rgba(0, 0, 0, 0.2);
+    background-repeat: no-repeat;
+    background-position: center; }
+
+.details {
+  color: #fff;
+  display: block;
+  height: 54px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: right;
+  width: 100%;
+  z-index: 100; }
+  .details span {
+    float: right;
+    padding: 0.8em 1.2em; }
+  .details .price {
+    background: #6b707c;
+    background: rgba(107, 112, 124, 0.9); }
+  .details .map {
     background: #e76f5c;
+    background: rgba(231, 111, 92, 0.9); }
+    .details .map:hover {
+      background: #e76f5c;
+      background: #e76f5c; }
+  .details a {
     color: #fff;
-    display: inline-block;
-    padding: 0.8em 1.2em;
-    position: absolute;
-    bottom: 0;
-    right: 0; }
-  .listing-container a {
-    display: block; }
+    display: inline; }
 
 /* ----(( clear fixes ))---- */
 .container:before,
@@ -210,7 +237,7 @@ select {
 /* ----(( media queries ))---- */
 @media screen and (max-width: 900px) {
   .listing-container {
-    width: 46%; } }
+    width: 50%; } }
 @media screen and (max-width: 480px) {
   select, input[type=submit], input[type=text], input[type=password], textarea {
     width: 100%;
@@ -218,5 +245,4 @@ select {
     margin-right: 0; }
 
   .listing-container {
-    margin: 4% 2%;
-    width: 96%; } }
+    width: 100%; } }

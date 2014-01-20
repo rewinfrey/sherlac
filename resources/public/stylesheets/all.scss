@@ -46,10 +46,9 @@ header {
 
 .container {
   margin: 0 auto;
-  max-width: 1200px;
-  width: 90%;
-  padding: 1.5em 0;
   position: relative;
+  &.full {
+  }
 }
 
 .logo-image {
@@ -91,6 +90,7 @@ header {
   box-shadow: 0 0 4px $slate-blue;
   margin: 0 auto;
   overflow: hidden;
+  width: 90%;
   &.search {
     max-width: 620px;
   }
@@ -181,36 +181,75 @@ select {
   }
 }
 
+/* ----(( results ))---- */
+.search-results {
+  header {
+    margin-top: 0;
+    padding: 1.5em 0;
+  }
+  .logo-image {
+    margin: 0;
+  }
+  a {
+    display: inline-block;
+  }
+}
+
 /* ----(( listings ))---- */
 .listing-container {
   float: left;
-  margin: 2%;
   position: relative;
-  width: 29.333333333%;
+  width: 33.333333333%;
+}
+
+.listing-image {
+  height: 340px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 0;
   img {
     display: block;
-    min-width: 360px;
+    min-width: 100%;
   }
-  .listing-image {
-    background-color: $gray;
-    height: 340px;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    width: 100%;
-    z-index: 20;
+  &.none{
+    background: url(/images/no-image.png) rgba(0,0,0,0.2);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.details {
+  color: #fff;
+  display: block;
+  height: 54px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: right;
+  width: 100%;
+  z-index: 100;
+  span {
+    float: right;
+    padding: 0.8em 1.2em;
   }
   .price {
+    background: #6b707c;
+    background: rgba(107, 112, 124, 0.9);
+  }
+  .map {
     background: $coral;
-    color: #fff;
-    display: inline-block;
-    padding: 0.8em 1.2em;
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    background: rgba(231, 111, 92, 0.9);
+    &:hover {
+      background: $coral;
+      background: rgba(231, 111, 92, 1);
+    }
   }
   a {
-    display: block;
+    color: #fff;
+    display: inline;
   }
 }
 
@@ -250,7 +289,7 @@ select {
 /* ----(( media queries ))---- */
 @media screen and (max-width: 900px) {
   .listing-container {
-    width: 46%;
+    width: 50%;
   }
 }
 
@@ -261,8 +300,7 @@ select {
     margin-right: 0;
   }
   .listing-container {
-    margin: 4% 2%;
-    width: 96%;
+    width: 100%;
   }
 }
 
