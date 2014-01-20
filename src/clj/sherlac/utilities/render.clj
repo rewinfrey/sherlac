@@ -1,4 +1,4 @@
-(ns sherlac.render
+(ns sherlac.utilities.render
   (:require [clostache.parser :as parser]))
 
 ; TODO REW absolutely no error-checking yay!

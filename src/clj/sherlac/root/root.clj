@@ -1,4 +1,4 @@
-(ns sherlac.root
+(ns sherlac.root.root
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
             [joodo.middleware.asset-fingerprint :refer [wrap-asset-fingerprint]]
@@ -16,7 +16,7 @@
             [ring.middleware.resource :refer [wrap-resource]]
             [ring.middleware.session :refer [wrap-session]]
             [sherlac.query-craig.category :refer [find-category]]
-            [sherlac.render :refer :all]
+            [sherlac.utilities.render :refer :all]
             ))
 
 (defmacro with-layout [& body]
@@ -24,10 +24,10 @@
 
 (defn search-form [category]
   (let [category-options (find-category category)]
-    (render "src/clj/sherlac/search_form.html")))
+    (render "src/clj/sherlac/search/housing_search_form.html")))
 
 (defn display-results [results]
-  (render "src/clj/sherlac/results.html" {:results results}))
+  (render "src/clj/sherlac/results/housing_results.html" {:results results}))
 
 (defn execute-search [params]
   (display-results params))

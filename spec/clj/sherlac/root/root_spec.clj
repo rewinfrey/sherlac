@@ -1,7 +1,7 @@
-(ns sherlac.root-spec
+(ns sherlac.root.root-spec
   (:require [speclj.core :refer :all]
             [joodo.spec-helpers.controller :refer :all]
-            [sherlac.root :refer :all]))
+            [sherlac.root.root :refer :all]))
 
 (describe "root"
 

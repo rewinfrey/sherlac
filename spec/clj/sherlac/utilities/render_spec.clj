@@ -1,6 +1,7 @@
-(ns sherlac.render-spec
+(ns sherlac.utilities.render-spec
   (:require [speclj.core :refer :all]
-            [sherlac.render :refer :all]))
+            [sherlac.utilities.render :refer :all]
+            [clojure.java.io :as io]))
 
 (def test-file-path "src/clj/sherlac/test-file")
 (def test-file-dynamic-path "src/clj/sherlac/test-dynamic-file")
@@ -20,10 +21,13 @@
 
 (describe "render"
   (around [it]
-          (let [test-file (spit test-file-path html-test-fixture)
-                test-dynamic-file (spit test-file-dynamic-path html-dynamic-test-fixture)
-                test-parials-file (spit test-file-partials-path html-partials-test-fixture)]
-          (it)))
+          (let [test-file          (spit test-file-path html-test-fixture)
+                test-dynamic-file  (spit test-file-dynamic-path html-dynamic-test-fixture)
+                test-partials-file (spit test-file-partials-path html-partials-test-fixture)]
+          (it)
+            (io/delete-file test-file-path)
+            (io/delete-file test-file-dynamic-path)
+            (io/delete-file test-file-partials-path)))
 
   (context "render"
     (it "renders a specified template with no attr-map or partials"
