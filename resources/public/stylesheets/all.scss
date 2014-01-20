@@ -185,7 +185,7 @@ select {
 .search-results {
   header {
     margin-top: 0;
-    padding: 1.5em 0;
+    padding: 1.75em 0 1.5em 0;
   }
   .logo-image {
     margin: 0;
@@ -203,6 +203,7 @@ select {
 }
 
 .listing-image {
+  background: $slate-blue;
   height: 340px;
   overflow: hidden;
   position: relative;
@@ -214,9 +215,10 @@ select {
     min-width: 100%;
   }
   &.none{
-    background: url(/images/no-image.png) rgba(0,0,0,0.2);
+    background: url(/images/no-image-2.jpg) rgba(0,0,0,0.2);
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 0% 50%;
+    background-size: 100%;
   }
 }
 
