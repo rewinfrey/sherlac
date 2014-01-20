@@ -29,10 +29,14 @@
 (defn display-results [results]
   (render "src/clj/sherlac/results.html" {:results results}))
 
+(defn execute-search [params]
+  (display-results params))
+
 (defroutes app-routes
   (GET "/" [] (with-layout (search-form "housing")))
   (GET "/results" [] (with-layout (display-results "")))
-  (GET "/:category" [category] (with-layout (search-form category))))
+  (GET "/:category" [category] (with-layout (search-form category)))
+  (POST "/search" {:as request} (with-layout (execute-search [(:params request)]))))
 
 (def app-handler
   (->

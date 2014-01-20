@@ -7,26 +7,26 @@
   </header>
 
   <div class="form-container search">
-    <form>
+    <form action="/search" method="post">
       <h2 class="form-title">Search apartment listings in Chicago.</h2>
       <span class="divide"></span>
-      <input type="text" placeholder="In-unit laundry, fireplaces, clawfoot tubs..." class="search-input" autocomplete="off" />
-      <select>
-        <option>0+ Bedroom(s)</option>
-        <option>1+ Bedroom(s)</option>
-        <option>2+ Bedroom(s)</option>
-        <option>3+ Bedroom(s)</option>
-        <option>4+ Bedroom(s)</option>
+      <input type="text" name="query" placeholder="In-unit laundry, fireplaces, clawfoot tubs..." class="search-input" autocomplete="off" />
+      <select name="bedrooms" value="0">
+        <option value="0">0+ Bedroom(s)</option>
+        <option value="1">1+ Bedroom(s)</option>
+        <option value="2">2+ Bedroom(s)</option>
+        <option value="3">3+ Bedroom(s)</option>
+        <option value="4">4+ Bedroom(s)</option>
       </select>
-      <select>
-        <option>Housing Type</option>
-        <option>Apartment</option>
-        <option>Condo</option>
-        <option>Cottage/Cabin</option>
-        <option>Duplex</option>
+      <select name="housing-type" value="0">
+        <option value="0">Housing Type</option>
+        <option value="1">Apartment</option>
+        <option value="2">Condo</option>
+        <option value="3">Cottage/Cabin</option>
+        <option value="4">Duplex</option>
       </select>
-      <input type="checkbox" value="1" id="" name="" />
-      <label for="checkboxTwoInput">I want pictures</label>
+      <input type="checkbox" value="1" id="picture" name="picture" />
+      <label for="picture">I want pictures</label>
       <input type="submit" value="Search Listings" class="button primary" />
     </form>
   </div>
